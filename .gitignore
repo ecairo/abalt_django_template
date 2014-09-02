@@ -16,3 +16,9 @@ build
 
 # Logs:
 *.log
+
+# Media folder
+./media/*
+
+# PyCharm .idea folder
+./.idea/*
