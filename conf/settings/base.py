@@ -63,11 +63,11 @@ TIME_ZONE = 'America/Los_Angeles'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en'
 
-ugtext = lambda s: s
+ugettext = lambda s: s
 
 LANGUAGES = (
-    ('en': ugtext('English')),
-    ('es': ugtext('Spanish')),
+    ('en', ugettext('English')),
+    ('es', ugettext('Spanish')),
 )
 
 LOCALE_PATHS = (
