@@ -36,6 +36,13 @@ DATABASES = {
 ########## END DATABASE CONFIGURATION
 
 
+########## SITE CONFIGURATION
+# Hosts/domain names that are valid for this site
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = []
+########## END SITE CONFIGURATION
+
+
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
@@ -62,7 +69,12 @@ MIDDLEWARE_CLASSES += (
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': False,
+    'JQUERY_URL': '',
     'SHOW_TEMPLATE_CONTEXT': True,
 }
 ########## END TOOLBAR CONFIGURATION
+
+########## WSGI CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
+WSGI_APPLICATION = 'conf.wsgi.local.application'
+########## END WSGI CONFIGURATION

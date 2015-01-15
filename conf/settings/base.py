@@ -33,7 +33,7 @@ TEMPLATE_DEBUG = DEBUG
 ########## MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ('Your Name', 'your_email@example.com'),
+    ('Abalt', 'admin@abalt.org'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -41,27 +41,12 @@ MANAGERS = ADMINS
 ########## END MANAGER CONFIGURATION
 
 
-########## DATABASE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-########## END DATABASE CONFIGURATION
-
-
 ########## GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
 TIME_ZONE = 'Europe/Madrid'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'es'
 
 ugettext = lambda s: s
 
@@ -97,21 +82,12 @@ MEDIA_URL = '/media/'
 ########## END MEDIA CONFIGURATION
 
 
-########## STATIC FILE CONFIGURATION
+########## STATIC FILE 
+
+STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
-
-# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = (
-    normpath(join(SITE_ROOT, 'apps/web/static')),
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
 ########## END STATIC FILE CONFIGURATION
 
 
@@ -120,13 +96,6 @@ STATICFILES_FINDERS = (
 # Note: This key should only be used for development and testing.
 SECRET_KEY = r"{{ secret_key }}"
 ########## END SECRET CONFIGURATION
-
-
-########## SITE CONFIGURATION
-# Hosts/domain names that are valid for this site
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
-########## END SITE CONFIGURATION
 
 
 ########## FIXTURE CONFIGURATION
@@ -138,24 +107,6 @@ FIXTURE_DIRS = (
 
 
 ########## TEMPLATE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
@@ -204,7 +155,6 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     # Database migration helpers:
-    'south',
 )
 
 # Apps specific for this project go here.
@@ -215,42 +165,3 @@ LOCAL_APPS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
-
-
-########## LOGGING CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
-########## END LOGGING CONFIGURATION
-
-
-########## WSGI CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'conf.wsgi.application'
-########## END WSGI CONFIGURATION

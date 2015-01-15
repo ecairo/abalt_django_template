@@ -1,6 +1,14 @@
-"""Production settings and globals."""
+"""Stage settings and globals."""
 
 from base import *
+
+########## DEBUG CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
+DEBUG = True
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
+TEMPLATE_DEBUG = DEBUG
+########## END DEBUG CONFIGURATION
 
 
 ########## DATABASE CONFIGURATION
@@ -22,8 +30,7 @@ DATABASES = {
 ALLOWED_HOSTS = []
 ########## END SITE CONFIGURATION
 
-
 ########## WSGI CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'conf.wsgi.production.application'
+WSGI_APPLICATION = 'conf.wsgi.stage.application'
 ########## END WSGI CONFIGURATION
